@@ -11,42 +11,45 @@ Following were considered to develop the application.
 </ul>
 Implementation
 ============
-AngylarJS has been used to communicate with the backend. 
-Front-end
-The data has been controlled from the front-end using a controller called ResultController (CingleVue / src / main / webapp / public / js / resultController.js).
-Subjects are fetched using challenge/subjects url as a JSON object.
-The Subjects are loaded to a dropdown at page load time via init() function.
-Data grid is loaded upon selection of a subject from the dropdown.
-The grid data is fetched using challenge/subjects/{selected subject} url as a JSON object.
-The grid date is loaded via loadData() funtion.
+<h3>Front-end</h3>
+AngylarJS has been used to communicate with the backend. <br/>
+The data has been controlled using a controller called ResultController (CingleVue / src / main / webapp / public / js / resultController.js).<br/>
+Subject records are fetched using <em>challenge/subjects</em> url as a JSON object.<br/>
+The Subjects are loaded to a dropdown at page load time via <em>init()</em> function.<br/>
+Data grid is loaded upon selection of a subject from the dropdown.<br/>
+The grid data is fetched using <em>challenge/subjects/{selected subject}</em> url as a JSON object.<br/>
+The grid date is loaded via <em>loadData()</em> funtion.
 
-Back-end
-There 4 bean definition files,
-cingleVue-servlet.xml - Loads Spring MVC beans
-persistence-context.xml - Loads persistence beans
-service-context.xml - Loads service beans
-applicationContext.xml - Imports above three bean definition files
-MainController controls requests and responses.
-To communicate with MongoDB spring data MongoTemplate has been used.
-Three models has been created to map collections to objects and those objects are being used to pass information between layers.
+<h3>Back-end</h3>
+There are 4 bean definition files,
+<ul>
+<li>cingleVue-servlet.xml - Contain Spring MVC beans</li>
+<li>persistence-context.xml - Contain persistence beans</li>
+<li>service-context.xml - Contain service beans</li>
+<li>applicationContext.xml - Imports above three bean definition files and load them to the memory</li>
+</ul>
+MainController class controls requests and responses.<br/>
+To communicate with MongoDB spring data <em>MongoTemplate</em> has been used.<br/>
+Three model objects have been created to map collections to objects and those objects are being used to pass information between layers.
 
 
 Configuration
 ===========
-Database configurations such as database name, port number and host has been externalized to config.properties (CingleVue / src / main / resources /).
-Open pom.xml file to provide tomcat username and password for the tomcat plugin
+Database configurations such as database name, port number and host has been definded in config.properties <em>(CingleVue / src / main / resources /)</em>.<br/>
+Open pom.xml file and provide tomcat username and password for the tomcat plugin.<br/>
 
 Deployment
 ==========
-Database setup
-Move into  Database / folder and execute following command to create a database call nadisha.
->mongo 127.0.0.1/nadisha loadData.js
+<h3>Database setup</h3>
+Move into  <em>Database /</em> folder and execute following command to create a database call nadisha. The <em>loadData.js</em> creates 3 collections and insert documents to each collection.<br/>
+> mongo 127.0.0.1/nadisha loadData.js
 
-Server deployment
-Assume the deployment server as Tomcat.
-Starts the tomcate server.
-Move into CingleVue / folder and execute following command to deploy.
->mvn clean tomcat:deploy
-If the build fails, cpoy the .war file from target folder and manually deploy on the server
-Check the application by typing following url on your browser,
-http://[host]:[port]/CingleVue/
+<h3>Server deployment</h3>
+Assume the deployment server is Tomcat.<br/>
+Starts the tomcate server.<br/>
+Move into <em>CingleVue /</em> folder and execute following command to deploy.<br/>
+> mvn clean tomcat:deploy
+
+If the build fails, copy the war file from target folder and manually deploy on to the server.<br/>
+Check the application by typing following url on your browser,<br/>
+<strong>http://[host]:[port]/CingleVue/</strong>
