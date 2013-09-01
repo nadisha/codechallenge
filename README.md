@@ -1,7 +1,7 @@
 Development
 ===========
 The project has been developed using Spring 3.2.1 framework. <br/>
-Following were considered to develop the application.
+Following were considered for the development,
 <ul>
 <li>Build Tool - Maven</li>
 <li>Database - MongoDB</li>
